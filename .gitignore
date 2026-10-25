@@ -1,0 +1,62 @@
+# Environnements Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
+*.log
+
+# Virtualenv
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Configurations locales
+*.sqlite3
+*.db
+instance/
+.DS_Store
+Thumbs.db
+
+# Fichiers de configuration sensibles
+.env.local
+.env.dev
+.env.prod
+.env.test
+
+# Cache et artefacts
+.cache/
+*.bak
+*.swp
+*.tmp
+*.out
+
+# Outils et IDE
+.vscode/
+.idea/
+*.iml
+
+# Docker
+docker-compose.override.yml
+.docker/
+*.pid
+
+# Tests
+.coverage
+htmlcov/
+.tox/
+.pytest_cache/
+nosetests.xml
+coverage.xml
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Fichiers uploadés
+uploads/
