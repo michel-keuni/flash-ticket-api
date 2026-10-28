@@ -79,7 +79,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /opt/flash_ticket
+            cd /opt/flash_ticket/flash-ticket-api
             
             echo "[CI/CD] Récupération du dernier code Git..."
             git pull origin main
