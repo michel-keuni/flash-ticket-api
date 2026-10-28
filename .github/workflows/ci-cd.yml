@@ -79,19 +79,26 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            set -Eeuo pipefail
+
             cd /opt/flash_ticket/flash-ticket-api
-            
+
+            echo "[CI/CD] Vérification de Docker Compose..."
+            docker compose version
+
             echo "[CI/CD] Récupération du dernier code Git..."
-            git pull origin main
+            git pull --ff-only origin main
 
-            echo "[CI/CD] Arret de la stack Docker..."
-            docker compose down
+            echo "[CI/CD] Reconstruction et relance de la stack..."
+            docker compose up -d --build --remove-orphans
 
-            echo "[CI/CD] Reconstruction et relance de la stack Docker..."
-            docker compose up --build -d
-            
-            echo "[CI/CD] Nettoyage des anciennes images Docker inutilisées..."
+            echo "[CI/CD] Vérification des conteneurs..."
+            docker compose ps
+
+            echo "[CI/CD] État de santé des conteneurs..."
+            docker ps
+
+            echo "[CI/CD] Nettoyage des anciennes images inutilisées..."
             docker image prune -f
 
-            echo "[CI/CD] Déploiement terminé Conteneurs lancés:"
-            docker ps
+            echo "[CI/CD] Déploiement terminé."
