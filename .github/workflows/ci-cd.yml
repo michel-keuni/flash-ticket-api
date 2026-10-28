@@ -51,6 +51,9 @@ jobs:
           DATABASE_URL: postgresql+asyncpg://postgres:postgrespassword@localhost:5432/flashticket_test
           SECRET_KEY: test_secret_key_ci
           IS_DEV: True
+          PROJECT_NAME: FlashTicket
+          VERSION: 1.0.0
+          ACCESS_TOKEN_EXPIRE_MINUTES: 30
         run: |
           pytest --cov=app
 
