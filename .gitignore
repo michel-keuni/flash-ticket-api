@@ -60,3 +60,6 @@ build/
 
 # Fichiers uploadés
 uploads/
+
+github-deploy-key
+github-deploy-key.pub
