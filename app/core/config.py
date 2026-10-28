@@ -7,9 +7,9 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str
+    PROJECT_NAME: str = "Flash Ticket"
     API_V1_STR: str = "/api/v1"
-    VERSION: str
+    VERSION: str = "1.0.0"
     IS_DEV: bool = False  # Indique l'environnement de développement
 
     # Base de données & Sécurité
